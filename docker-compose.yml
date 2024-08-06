@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: go run main.go
+
+  frontend:
+    build:
+      context: ./url-shortener-frontend
+    ports:
+      - "3000:80"
